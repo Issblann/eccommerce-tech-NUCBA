@@ -6,10 +6,11 @@ export const GlobalStyles = createGlobalStyle`
     --color-1: #F5F7FF;
     --color-2: #cc142c ;
     --color-3: #A2A6B0;
-    --color-4: #CACDD8;
-  
+    --color-4: #CACDD8; 
   }
-
+  *{
+    box-sizing: border-box;
+  }
   html{
     scroll-behavior: smooth;
   }

@@ -2,14 +2,12 @@ import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
 export const HeaderPrincipal = styled.header`
-  height: 136px;
+  height: 92px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: green;
-  border: 1px solid red;
 `;
 
 export const PromotionContainerStyled = styled.div`
@@ -19,7 +17,6 @@ export const PromotionContainerStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid red;
 `;
 
 export const TextSectionPromotionContainerStyled = styled.div`
@@ -28,7 +25,6 @@ export const TextSectionPromotionContainerStyled = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 1500px;
-  border: 1px solid red;
 
   p {
     color: #ffff;
@@ -43,14 +39,12 @@ export const TextSectionPromotionContainerStyled = styled.div`
 
 export const NavbarContainerStyled = styled.div`
   width: 100%;
-  background: purple;
   max-width: 1500px;
   height: 92px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  border: 1px solid red;
 `;
 export const LinksContainerStyled = styled.div`
   color: white;
@@ -58,7 +52,6 @@ export const LinksContainerStyled = styled.div`
   justify-content: center;
   align-items: center;
   gap: 40px;
-  border: 1px solid red;
 
   a {
     padding: 0.5rem 1.5rem;
@@ -81,7 +74,6 @@ export const LinkContainerStyled = styled.div`
   align-items: center;
   cursor: pointer;
   font-size: 14px;
-  border: 1px solid red;
   color: ${(props) => (props.home ? "white" : "black")};
 `;
 

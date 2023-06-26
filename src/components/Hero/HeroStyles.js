@@ -5,13 +5,11 @@ export const HeroContainerStyled = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  max-width: 1500px;
   min-width: 320px;
   margin: auto;
   width: 100vw;
 `;
 export const StyledImage = styled.img`
-  max-width: 1500px;
   width: 100%;
   height: 100%;
 `;

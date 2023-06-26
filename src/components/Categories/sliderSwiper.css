@@ -1,0 +1,14 @@
+.swiper {
+  width: 80%;
+  height: 500px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: static;
+  --swiper-navigation-size: 15px;
+  padding: 20px;
+  opacity: 100%;
+  border: none;
+  color: black;
+}

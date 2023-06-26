@@ -5,7 +5,7 @@ function App() {
   return (
     <Layout>
       <Navbar />
-      {/* <Rutas /> */}
+      <Rutas />
     </Layout>
   );
 }
