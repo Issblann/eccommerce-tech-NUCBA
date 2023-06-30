@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaUserAlt } from "react-icons/fa";
+import { HiOutlineMenu } from "react-icons/hi";
+import { GrClose } from "react-icons/gr";
+
 import {
   HeaderPrincipal,
   NavbarContainerStyled,
@@ -9,9 +12,17 @@ import {
   TextSectionPromotionContainerStyled,
   LinksContainerStyled,
   LinkContainerStyled,
+  MenuContainerStyled,
+  MenuButton,
+  MenuItem,
+  ContainerMenuAndLogo,
 } from "./NavbarStyles";
 import { Link } from "react-router-dom";
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
     <>
       <PromotionContainerStyled>
@@ -37,23 +48,37 @@ const Navbar = () => {
 
       <HeaderPrincipal>
         <NavbarContainerStyled>
-          <div>
+          <ContainerMenuAndLogo>
             <p>Logo</p>
-          </div>
+            <MenuButton onClick={toggleMenu}>
+              {isMenuOpen ? <GrClose size={24} /> : <HiOutlineMenu size={24} />}
+            </MenuButton>
+          </ContainerMenuAndLogo>
 
           <LinksContainerStyled>
             <motion.div whileTap={{ scale: 0.97 }}>
               <Link to="/">
-                <LinkContainerStyled home="true"> Home</LinkContainerStyled>
+                <LinkContainerStyled className="link-hidden" home="true">
+                  Home
+                </LinkContainerStyled>
               </Link>
             </motion.div>
+
             <LinkContainerStyled>
               <AiOutlineShoppingCart fontSize="20px" />
             </LinkContainerStyled>
-            <LinkContainerStyled>
+            <LinkContainerStyled className="link-hidden">
               <FaUserAlt /> Inicia sesión
             </LinkContainerStyled>
           </LinksContainerStyled>
+          <motion.div whileTap={{ scale: 0.95 }}>
+            <MenuContainerStyled isMenuOpen={isMenuOpen}>
+              <MenuItem className="home" to="/">
+                Home
+              </MenuItem>
+              <MenuItem to="/login">Iniciar Sesión</MenuItem>
+            </MenuContainerStyled>
+          </motion.div>
         </NavbarContainerStyled>
       </HeaderPrincipal>
     </>

@@ -1,4 +1,4 @@
-export const newProductos = [
+export const newProducts = [
   {
     id: 2,
     title: "Armada 27 Gaming Monitor",

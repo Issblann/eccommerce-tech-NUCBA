@@ -10,6 +10,7 @@ import {
   ParagraphHeroStyled,
   LinkToActionStyled,
 } from "./HeroStyles";
+import Button from "../UI/button/Button";
 const Hero = () => {
   return (
     <div>
@@ -20,7 +21,7 @@ const Hero = () => {
           <ParagraphHeroStyled>Immerse yourself in gaming</ParagraphHeroStyled>
 
           <LinkToActionStyled>
-            Discover now <BsArrowRight />
+            <Button variant="default"> DISCOVER NOW </Button>
           </LinkToActionStyled>
         </SubContainerHeroStyled>
       </HeroContainerStyled>

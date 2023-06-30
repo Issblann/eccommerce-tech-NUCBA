@@ -1,12 +1,20 @@
 import styled, { css } from "styled-components";
 import { TitleContainerStyled } from "../NewProducts/NewProductsStyles";
+import { motion } from "framer-motion";
 
 export const TitleCategoryContainerStyled = styled(TitleContainerStyled)`
   text-align: center;
   font-size: 35px;
 `;
 
-export const CategoryCardStyled = styled.div`
+export const CategoryIMGStyled = styled.img`
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.2s ease;
+  /* opacity: 80%; */
+  opacity: ${({ selected }) => (selected ? "100%" : "80%")};
+`;
+export const CategoryCardStyled = styled(motion.div)`
   width: 100%;
   height: 100%;
   display: flex;
@@ -14,12 +22,14 @@ export const CategoryCardStyled = styled.div`
   justify-content: center;
   align-items: center;
   gap: 30px;
-`;
+  cursor: pointer;
 
-export const CategoryIMGStyled = styled.img`
-  width: 100%;
-  object-fit: cover;
-  opacity: 80%;
+  &:hover {
+    ${CategoryIMGStyled} {
+      opacity: 100%;
+      transition: all 0.2s ease;
+    }
+  }
 `;
 
 export const TitleCategoryStyled = styled.p`

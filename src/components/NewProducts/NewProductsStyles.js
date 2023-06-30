@@ -17,7 +17,6 @@ export const ContainerStyled = styled.div`
   justify-content: center;
   padding: 20px;
   gap: 10px;
-  /* background: green; */
 `;
 
 export const TitleContainerStyled = styled.h1`

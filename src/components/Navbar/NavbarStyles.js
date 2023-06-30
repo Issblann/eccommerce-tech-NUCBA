@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export const HeaderPrincipal = styled.header`
   height: 92px;
@@ -30,6 +31,10 @@ export const TextSectionPromotionContainerStyled = styled.div`
     color: #ffff;
     font-size: 12px;
 
+    @media (max-width: 768px) {
+      font-size: 8px;
+    }
+
     span {
       color: var(--color-3);
       margin-right: 5px;
@@ -39,6 +44,7 @@ export const TextSectionPromotionContainerStyled = styled.div`
 
 export const NavbarContainerStyled = styled.div`
   width: 100%;
+  position: relative;
   max-width: 1500px;
   height: 92px;
   display: flex;
@@ -65,6 +71,12 @@ export const LinksContainerStyled = styled.div`
     align-items: center;
     gap: 5px;
   }
+  @media (max-width: 768px) {
+    .link-hidden,
+    a:first-child {
+      display: none;
+    }
+  }
 `;
 
 export const LinkContainerStyled = styled.div`
@@ -75,21 +87,6 @@ export const LinkContainerStyled = styled.div`
   cursor: pointer;
   font-size: 14px;
   color: ${(props) => (props.home ? "white" : "black")};
-`;
-
-export const ModalOverlayStyled = styled(motion.div)`
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 50;
-  width: calc(100vw - 450px);
-  height: 100vh;
-
-  ${({ isHidden }) =>
-    !isHidden &&
-    css`
-      backdrop-filter: blur(4px);
-    `}
 `;
 
 export const UserContainerStyled = styled(LinkContainerStyled)`
@@ -135,5 +132,59 @@ export const UserImageStyled = styled.img`
 export const SpanStyled = styled.span`
   &:hover {
     text-decoration: underline;
+  }
+`;
+
+export const MenuContainerStyled = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    height: 100vh;
+    width: 266px;
+    z-index: 100;
+    background-color: #f1f1f1;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    transform: ${({ isMenuOpen }) =>
+      isMenuOpen ? "translateX(0)" : "translateX(-100%)"};
+  }
+`;
+
+export const MenuItem = styled(Link)`
+  display: block;
+  margin-bottom: 10px;
+  color: #333 !important;
+  text-decoration: none;
+
+  &:hover {
+    color: #000;
+  }
+`;
+export const ContainerMenuAndLogo = styled.div`
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    width: 50%;
+    flex-direction: row-reverse;
+  }
+`;
+export const MenuButton = styled.button`
+  display: none;
+  @media (max-width: 768px) {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  &:focus {
+    outline: none;
   }
 `;

@@ -6,15 +6,16 @@ import {
   ContainerNewProductsListStyled,
 } from "./NewProductsStyles";
 
-import { newProductos } from "../../data/newproducts";
 import CardNewProducts from "./CardNewProducts";
+import { useSelector } from "react-redux";
 const NewProducts = () => {
+  const newProducts = useSelector((state) => state.NewProducts.newProducts);
   return (
     <SectionPrincipalStyled>
       <ContainerStyled>
         <TitleContainerStyled>New Products</TitleContainerStyled>
         <ContainerNewProductsListStyled>
-          {newProductos.map((newProduct) => {
+          {newProducts.map((newProduct) => {
             return <CardNewProducts {...newProduct} key={newProduct.id} />;
           })}
         </ContainerNewProductsListStyled>

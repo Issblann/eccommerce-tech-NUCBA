@@ -10,11 +10,12 @@ import {
 } from "../NewProducts/NewProductsStyles.js";
 
 import { TitleCategoryContainerStyled } from "./CategoriesStyles.js";
-import { categories } from "../../data/categories";
 import Category from "./Category";
+import { useSelector } from "react-redux";
+
 const Categories = () => {
   const swiperRef = useRef();
-
+  const categories = useSelector((state) => state.Categories.categories);
   const sliderSettings = {
     440: {
       slidesPerView: 1,
