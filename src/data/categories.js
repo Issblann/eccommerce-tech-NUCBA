@@ -3,7 +3,7 @@ export const categories = [
     id: 1,
     img: "https://row.hyperx.com/cdn/shop/files/HX-shop_category-tiles_monitors_360x.jpg?v=1674118027",
     title: "GAMING MONITORS",
-    category: "GAMINGMONITORS",
+    category: "GAMING MONITORS",
   },
   {
     id: 2,
@@ -21,12 +21,12 @@ export const categories = [
     id: 4,
     img: "https://row.hyperx.com/cdn/shop/files/HX-shop_category-tiles_keyboards_360x.jpg?v=1674118027",
     title: "GAMING KEYBOARDS",
-    category: "GAMINGKEYBOARDS",
+    category: "GAMING KEYBOARDS",
   },
   {
     id: 5,
     img: "https://row.hyperx.com/cdn/shop/files/HX-shop_category-tiles_mice_360x.jpg?v=1674118026",
     title: "GAMING MICE",
-    category: "GAMINGMICE",
+    category: "GAMING MICE",
   },
 ];

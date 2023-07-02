@@ -4,7 +4,17 @@ import CardProduct from "./CardProduct";
 import { useSelector } from "react-redux";
 
 const CardsProducts = () => {
-  const Products = useSelector((state) => state.Products.products);
+  let Products = useSelector((state) => state.Products.products);
+  console.log(Products);
+  const selectedCategory = useSelector(
+    (state) => state.Categories.selectedCategory
+  );
+
+  if (selectedCategory) {
+    Products = {
+      [selectedCategory]: Products[selectedCategory],
+    };
+  }
   return (
     <ProductsContainer>
       {Object.entries(Products).map(([, ArrayProducts]) => {
