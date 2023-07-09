@@ -29,10 +29,7 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     }
 
-    a:visited {
-    color: white;
-    }
-
+  
     li {
     list-style: none;
     }

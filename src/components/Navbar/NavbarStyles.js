@@ -18,6 +18,12 @@ export const PromotionContainerStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 500px) {
+    height: unset;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const TextSectionPromotionContainerStyled = styled.div`
@@ -32,7 +38,7 @@ export const TextSectionPromotionContainerStyled = styled.div`
     font-size: 12px;
 
     @media (max-width: 768px) {
-      font-size: 8px;
+      font-size: 7px;
     }
 
     span {
@@ -45,32 +51,28 @@ export const TextSectionPromotionContainerStyled = styled.div`
 export const NavbarContainerStyled = styled.div`
   width: 100%;
   position: relative;
+  /* pendiente para cambio navbar flotante */
+  /* position: fixed; */
+  /* z-index: 10000; */
   max-width: 1500px;
   height: 92px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
+  background: #ffff;
+  gap: 20px;
+  @media (max-width: 500px) {
+    padding: 0 20px;
+  }
 `;
 export const LinksContainerStyled = styled.div`
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 26px;
 
-  a {
-    padding: 0.5rem 1.5rem;
-  }
-
-  a:first-child {
-    background: var(--color-2);
-    border-radius: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-  }
   @media (max-width: 768px) {
     .link-hidden,
     a:first-child {
@@ -81,34 +83,32 @@ export const LinksContainerStyled = styled.div`
 
 export const LinkContainerStyled = styled.div`
   font-size: 1.2rem;
+  position: relative;
   gap: 10px;
   display: flex;
   align-items: center;
   cursor: pointer;
   font-size: 14px;
+  padding: ${(props) => (props.home ? "10px 20px" : "none")};
+  border-radius: 10px;
   color: ${(props) => (props.home ? "white" : "black")};
-`;
+  background: ${(props) => (props.home ? "var(--color-2)" : "none")};
+  padding: 10px;
 
-export const UserContainerStyled = styled(LinkContainerStyled)`
-  display: flex;
-  align-items: center;
-`;
-
-export const CartNavStyled = styled.div`
-  position: relative;
-  cursor: pointer;
+  &.link-login {
+    padding: 0px;
+  }
 
   span {
-    position: absolute;
-    top: 0;
-    height: 20px;
-    width: 20px;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
     text-align: center;
-    border-radius: 1rem;
-    border: 1px solid white;
-    color: white;
-    background-color: red;
-    font-size: 0.9rem;
+    background: var(--color-2);
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    top: 0;
   }
 `;
 
@@ -129,12 +129,6 @@ export const UserImageStyled = styled.img`
   cursor: pointer;
 `;
 
-export const SpanStyled = styled.span`
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
 export const MenuContainerStyled = styled.div`
   display: none;
   @media (max-width: 768px) {
@@ -146,32 +140,45 @@ export const MenuContainerStyled = styled.div`
     height: 100vh;
     width: 266px;
     z-index: 100;
-    background-color: #f1f1f1;
+    background-color: var(--color-1);
     padding: 20px;
     transition: transform 0.3s ease-in-out;
-    transform: ${({ isMenuOpen }) =>
-      isMenuOpen ? "translateX(0)" : "translateX(-100%)"};
+    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
   }
 `;
 
-export const MenuItem = styled(Link)`
+export const MenuItem = styled(motion(Link))`
   display: block;
   margin-bottom: 10px;
-  color: #333 !important;
+  color: black;
   text-decoration: none;
+  transition: 0.3s ease-in-out;
 
   &:hover {
-    color: #000;
+    color: var(--color-2);
+    transition: 0.3s ease-in-out;
   }
 `;
 export const ContainerMenuAndLogo = styled.div`
   display: flex;
   width: 70%;
+  align-items: center;
   justify-content: space-between;
+
   @media (max-width: 768px) {
     width: 50%;
     flex-direction: row-reverse;
   }
+  & img {
+    margin-top: 21px;
+    margin-left: 20px;
+  }
+`;
+
+export const ContainerLogo = styled.div`
+  background: red;
+  display: flex;
+  align-items: center;
 `;
 export const MenuButton = styled.button`
   display: none;
@@ -187,4 +194,17 @@ export const MenuButton = styled.button`
   &:focus {
     outline: none;
   }
+`;
+export const ModalOverlayMenu = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 50;
+  width: calc(100vw - 266px);
+  height: 100vh;
+  ${({ isHidden }) =>
+    !isHidden &&
+    css`
+      backdrop-filter: blur(3px);
+    `}
 `;

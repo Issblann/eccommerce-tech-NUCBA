@@ -52,3 +52,18 @@ export const CardPrice = styled.span`
   font-weight: 800;
   font-size: 1.25rem;
 `;
+
+export const ContainerButtons = styled.div`
+  display: flex;
+  width: 30%;
+  padding: 10px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+
+  button {
+    color: black;
+  }
+`;

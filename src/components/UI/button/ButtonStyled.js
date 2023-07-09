@@ -56,4 +56,13 @@ export const ButtonStyled = styled(motion.button)`
     border: ${({ variant }) =>
       variant === "bordered" ? "1px solid red" : "none"};
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    ${IconChanged} {
+      transform: none;
+    }
+  }
 `;

@@ -16,16 +16,28 @@ import {
   MenuButton,
   MenuItem,
   ContainerMenuAndLogo,
+  ModalOverlayMenu,
 } from "./NavbarStyles";
 import { Link } from "react-router-dom";
-const Navbar = () => {
+import ModalCart from "./ModalCart/ModalCart";
+import { toggleHiddenCart } from "../../redux/cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import hyperxLogo from "../../assets/logo/hyperx-logo-lg.svg";
+const Navbar = ({ open }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const totalCartItemsSpan = useSelector(
+    (state) => state.Cart.cartItems
+  ).reduce((acc, item) => {
+    return (acc += item.quantity);
+  }, 0);
+  const dispatch = useDispatch();
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
     <>
-      <PromotionContainerStyled>
+      {/* <PromotionContainerStyled>
         <TextSectionPromotionContainerStyled>
           <p>
             <span>Mon-Thu:</span> 9:00 AM - 5:30 PM
@@ -44,12 +56,21 @@ const Navbar = () => {
         <TextSectionPromotionContainerStyled>
           <p>Call Us: (00) 1234 5678</p>
         </TextSectionPromotionContainerStyled>
-      </PromotionContainerStyled>
+      </PromotionContainerStyled> */}
 
       <HeaderPrincipal>
         <NavbarContainerStyled>
+          <ModalCart />
           <ContainerMenuAndLogo>
-            <p>Logo</p>
+            <Link to="/">
+              <img
+                src={hyperxLogo}
+                width="80px"
+                height="80px"
+                alt="hyperxLogo"
+              />
+            </Link>
+
             <MenuButton onClick={toggleMenu}>
               {isMenuOpen ? <GrClose size={24} /> : <HiOutlineMenu size={24} />}
             </MenuButton>
@@ -58,27 +79,52 @@ const Navbar = () => {
           <LinksContainerStyled>
             <motion.div whileTap={{ scale: 0.97 }}>
               <Link to="/">
-                <LinkContainerStyled className="link-hidden" home="true">
+                <LinkContainerStyled className="link-hidden" home="home">
                   Home
                 </LinkContainerStyled>
               </Link>
             </motion.div>
-
-            <LinkContainerStyled>
-              <AiOutlineShoppingCart fontSize="20px" />
-            </LinkContainerStyled>
-            <LinkContainerStyled className="link-hidden">
-              <FaUserAlt /> Inicia sesión
-            </LinkContainerStyled>
+            <motion.div whileTap={{ scale: 0.97 }}>
+              <Link to="">
+                <LinkContainerStyled className="link-hidden">
+                  Products
+                </LinkContainerStyled>
+              </Link>
+            </motion.div>
           </LinksContainerStyled>
-          <motion.div whileTap={{ scale: 0.95 }}>
-            <MenuContainerStyled isMenuOpen={isMenuOpen}>
-              <MenuItem className="home" to="/">
+
+          <motion.div whileTap={{ scale: 0.97 }}>
+            <LinkContainerStyled onClick={() => dispatch(toggleHiddenCart())}>
+              <AiOutlineShoppingCart fontSize="20px" />
+              <span>{totalCartItemsSpan}</span>
+            </LinkContainerStyled>
+          </motion.div>
+
+          <motion.div whileTap={{ scale: 0.97 }}>
+            <Link to="/login">
+              <LinkContainerStyled className="link-hidden link-login">
+                <FaUserAlt />
+                Login
+              </LinkContainerStyled>
+            </Link>
+          </motion.div>
+
+          {isMenuOpen && <ModalOverlayMenu onClick={toggleMenu} />}
+          {isMenuOpen ? (
+            <MenuContainerStyled open={!open}>
+              <MenuItem whileTap={{ scale: 0.95 }} className="home" to="/">
                 Home
               </MenuItem>
-              <MenuItem to="/login">Iniciar Sesión</MenuItem>
+              <MenuItem whileTap={{ scale: 0.95 }} className="home" to="/">
+                Products
+              </MenuItem>
+              <MenuItem whileTap={{ scale: 0.95 }} to="/login">
+                Iniciar Sesión
+              </MenuItem>
             </MenuContainerStyled>
-          </motion.div>
+          ) : (
+            <MenuContainerStyled open={open} />
+          )}
         </NavbarContainerStyled>
       </HeaderPrincipal>
     </>
