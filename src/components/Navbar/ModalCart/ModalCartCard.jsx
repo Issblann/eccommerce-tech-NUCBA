@@ -7,7 +7,7 @@ import {
   PriceStyled,
   QuantityContainerStyled,
 } from "./ModalCartStyles";
-import HandlerCounter from "../../UI/handlerCounter/handlerCounter";
+import HandlerCounter from "../../UI/handlerCounter/HandlerCounter";
 import Count from "../../UI/Count/Count";
 import { FaMinus } from "react-icons/fa";
 import { BsPlusLg } from "react-icons/bs";
