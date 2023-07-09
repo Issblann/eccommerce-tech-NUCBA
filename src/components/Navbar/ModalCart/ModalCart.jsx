@@ -17,7 +17,7 @@ import {
 import { AnimatePresence } from "framer-motion";
 import { MdOutlineClose } from "react-icons/md";
 import { IoMdTrash } from "react-icons/io";
-import HandlerCounter from "../../UI/handlerCounter/handlerCounter";
+import HandlerCounter from "../../UI/handlerCounter/HandlerCounter";
 import ModalCartCard from "./ModalCartCard";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, toggleHiddenCart } from "../../../redux/cart/cartSlice";
