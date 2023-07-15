@@ -18,12 +18,15 @@ import {
   ContainerMenuAndLogo,
   ModalOverlayMenu,
 } from "./NavbarStyles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ModalCart from "./ModalCart/ModalCart";
 import { toggleHiddenCart } from "../../redux/cart/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import hyperxLogo from "../../assets/logo/hyperx-logo-lg.svg";
+import { toggleMenuHidden } from "../../redux/user/userSlice";
 const Navbar = ({ open }) => {
+  const currentUser = useSelector((state) => state.User.currentUser);
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const totalCartItemsSpan = useSelector(
     (state) => state.Cart.cartItems
@@ -101,12 +104,15 @@ const Navbar = ({ open }) => {
           </motion.div>
 
           <motion.div whileTap={{ scale: 0.97 }}>
-            <Link to="/login">
-              <LinkContainerStyled className="link-hidden link-login">
-                <FaUserAlt />
-                Login
-              </LinkContainerStyled>
-            </Link>
+            <LinkContainerStyled
+              onClick={() =>
+                currentUser ? dispatch(toggleMenuHidden()) : navigate("/login")
+              }
+              className="link-hidden link-login"
+            >
+              <FaUserAlt />
+              {currentUser ? `${currentUser.nombre}` : "Login"}
+            </LinkContainerStyled>
           </motion.div>
 
           {isMenuOpen && <ModalOverlayMenu onClick={toggleMenu} />}
@@ -118,8 +124,15 @@ const Navbar = ({ open }) => {
               <MenuItem whileTap={{ scale: 0.95 }} className="home" to="/">
                 Products
               </MenuItem>
-              <MenuItem whileTap={{ scale: 0.95 }} to="/login">
-                Iniciar Sesión
+              <MenuItem
+                whileTap={{ scale: 0.95 }}
+                onClick={() =>
+                  currentUser
+                    ? dispatch(toggleMenuHidden())
+                    : navigate("/login")
+                }
+              >
+                {currentUser ? `${currentUser.nombre}` : "Login"}
               </MenuItem>
             </MenuContainerStyled>
           ) : (
