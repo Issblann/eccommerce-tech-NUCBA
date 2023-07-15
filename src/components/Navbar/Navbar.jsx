@@ -20,6 +20,7 @@ import {
 } from "./NavbarStyles";
 import { Link, useNavigate } from "react-router-dom";
 import ModalCart from "./ModalCart/ModalCart";
+import ModalUser from "./ModalUser/ModalUser";
 import { toggleHiddenCart } from "../../redux/cart/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import hyperxLogo from "../../assets/logo/hyperx-logo-lg.svg";
@@ -64,6 +65,7 @@ const Navbar = ({ open }) => {
       <HeaderPrincipal>
         <NavbarContainerStyled>
           <ModalCart />
+          <ModalUser />
           <ContainerMenuAndLogo>
             <Link to="/">
               <img

@@ -3,14 +3,15 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 export const ModalContainerStyled = styled(motion.div)`
-  position: absolute;
-  background-color: var(--color-2);
+  position: fixed;
+  background-color: var(--color-4);
   box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.3);
   width: 450px;
-  top: calc(100px + 2rem);
+  top: calc(100px + 0.5rem);
   right: 0;
   z-index: 1000;
   padding: 40px;
+  color: black;
 
   & span {
     display: flex;
