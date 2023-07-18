@@ -9,7 +9,7 @@ export const ModalContainerStyled = styled(motion.div)`
   width: 450px;
   top: calc(100px + 0.5rem);
   right: 0;
-  z-index: 1000;
+  z-index: 98;
   padding: 40px;
   color: black;
 
@@ -22,9 +22,14 @@ export const ModalContainerStyled = styled(motion.div)`
       opacity: 90%;
     }
   }
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 export const LinkStyled = styled(Link)`
+  color: blue;
   &:hover {
     opacity: 90%;
   }

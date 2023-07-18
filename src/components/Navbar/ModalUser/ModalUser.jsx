@@ -23,7 +23,7 @@ const ModalUser = () => {
           exit={{ translateX: 600 }}
           transition={{ duration: 0.5 }}
         >
-          <UsernameStyled>{currentUser?.nombre}</UsernameStyled>
+          <UsernameStyled>{(currentUser?.nombre).toUpperCase()}</UsernameStyled>
 
           <HrStyled />
 

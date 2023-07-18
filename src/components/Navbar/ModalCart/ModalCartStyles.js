@@ -18,6 +18,7 @@ export const ContainerCartStyled = styled(motion.div)`
 
   @media (max-width: 500px) {
     width: 100%;
+    padding: 20px;
   }
 `;
 export const ModalOverlayStyled = styled(motion.div)`

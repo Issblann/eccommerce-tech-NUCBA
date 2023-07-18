@@ -13,8 +13,11 @@ import { loginValidationSchema } from "../../Formik/validationSchema";
 import { loginUser } from "../../axios/axios-user";
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../../redux/user/userSlice";
+import useRedirect from "../../Hooks/useRedirect";
 const Login = () => {
   const dispatch = useDispatch();
+
+  useRedirect("/");
   return (
     <LoginContainerStyled>
       <h1>Login</h1>

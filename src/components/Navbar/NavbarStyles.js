@@ -11,43 +11,6 @@ export const HeaderPrincipal = styled.header`
   align-items: center;
 `;
 
-export const PromotionContainerStyled = styled.div`
-  height: 44px;
-  background: black;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  @media (max-width: 500px) {
-    height: unset;
-    flex-direction: column;
-    justify-content: center;
-  }
-`;
-
-export const TextSectionPromotionContainerStyled = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 1500px;
-
-  p {
-    color: #ffff;
-    font-size: 12px;
-
-    @media (max-width: 768px) {
-      font-size: 7px;
-    }
-
-    span {
-      color: var(--color-3);
-      margin-right: 5px;
-    }
-  }
-`;
-
 export const NavbarContainerStyled = styled.div`
   width: 100%;
   position: relative;
@@ -64,6 +27,10 @@ export const NavbarContainerStyled = styled.div`
   gap: 20px;
   @media (max-width: 500px) {
     padding: 0 20px;
+  }
+  @media (max-width: 460px) {
+    padding: unset;
+    gap: 10px;
   }
 `;
 export const LinksContainerStyled = styled.div`
@@ -97,6 +64,11 @@ export const LinkContainerStyled = styled.div`
 
   &.link-login {
     padding: 0px;
+
+    @media (max-width: 400px) {
+      gap: 10px;
+      font-size: 10px;
+    }
   }
 
   span {

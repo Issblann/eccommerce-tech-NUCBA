@@ -8,8 +8,6 @@ import { GrClose } from "react-icons/gr";
 import {
   HeaderPrincipal,
   NavbarContainerStyled,
-  PromotionContainerStyled,
-  TextSectionPromotionContainerStyled,
   LinksContainerStyled,
   LinkContainerStyled,
   MenuContainerStyled,
@@ -35,33 +33,12 @@ const Navbar = ({ open }) => {
     return (acc += item.quantity);
   }, 0);
   const dispatch = useDispatch();
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   return (
     <>
-      {/* <PromotionContainerStyled>
-        <TextSectionPromotionContainerStyled>
-          <p>
-            <span>Mon-Thu:</span> 9:00 AM - 5:30 PM
-          </p>
-        </TextSectionPromotionContainerStyled>
-        <TextSectionPromotionContainerStyled>
-          <p>
-            <span>
-              Visit our showroom in 257 Fireweed Ln, Ketchikan, Alaska 99901,
-              USA
-            </span>
-            Contact Us
-          </p>
-        </TextSectionPromotionContainerStyled>
-
-        <TextSectionPromotionContainerStyled>
-          <p>Call Us: (00) 1234 5678</p>
-        </TextSectionPromotionContainerStyled>
-      </PromotionContainerStyled> */}
-
       <HeaderPrincipal>
         <NavbarContainerStyled>
           <ModalCart />
@@ -113,7 +90,7 @@ const Navbar = ({ open }) => {
               className="link-hidden link-login"
             >
               <FaUserAlt />
-              {currentUser ? `${currentUser.nombre}` : "Login"}
+              {currentUser ? `${currentUser.nombre.toUpperCase()}` : "Login"}
             </LinkContainerStyled>
           </motion.div>
 
@@ -125,16 +102,6 @@ const Navbar = ({ open }) => {
               </MenuItem>
               <MenuItem whileTap={{ scale: 0.95 }} className="home" to="/">
                 Products
-              </MenuItem>
-              <MenuItem
-                whileTap={{ scale: 0.95 }}
-                onClick={() =>
-                  currentUser
-                    ? dispatch(toggleMenuHidden())
-                    : navigate("/login")
-                }
-              >
-                {currentUser ? `${currentUser.nombre}` : "Login"}
               </MenuItem>
             </MenuContainerStyled>
           ) : (
