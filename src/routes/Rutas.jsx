@@ -5,6 +5,8 @@ import Checkout from "../Pages/Checkout/Checkout";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+import MyOrders from "../Pages/MyOrders/MyOrders";
+import Congratulations from "../Pages/Congratulations/Congratulations";
 
 const Rutas = () => {
   return (
@@ -12,6 +14,8 @@ const Rutas = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/my-orders" element={<MyOrders />} />
+      <Route path="/congratulations" element={<Congratulations />} />
       <Route
         path="/checkout"
         element={

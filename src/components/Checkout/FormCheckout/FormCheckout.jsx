@@ -1,12 +1,36 @@
-import React from "react";
-import { ContainerFormStyled, Formik, Form } from "./FormCheckoutStyles";
-import Input from "../../UI/Input/Input";
-import Submit from "../../UI/submit/Submit";
-import { checkoutInitialValues } from "../../../Formik/initialValues";
-import { checkoutValidationSchema } from "../../../Formik/validationSchema";
+import React from 'react';
+import { ContainerFormStyled, Formik, Form } from './FormCheckoutStyles';
+import Input from '../../UI/Input/Input';
+import Submit from '../../UI/submit/Submit';
+import { checkoutInitialValues } from '../../../Formik/initialValues';
+import { checkoutValidationSchema } from '../../../Formik/validationSchema';
+import { createOrder } from '../../../axios/axios-orders';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { clearCart } from '../../../redux/cart/cartSlice';
 
-const FormCheckout = ({ cartItems }) => {
-  const handleSubmit = (values, { resetForm }) => {
+const FormCheckout = ({ cartItems, price, shippingCost }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { currentUser } = useSelector((state) => state.User);
+  const handleSubmit = async (values, { resetForm }) => {
+    const orderData = {
+      items: cartItems,
+      price,
+      shippingCost,
+      total: price + shippingCost,
+      shippingDetails: {
+        ...values,
+      },
+    };
+    try {
+      await createOrder(orderData, dispatch, currentUser);
+      navigate('/congratulations');
+      dispatch(clearCart());
+    } catch (error) {
+      console.log(error);
+      alert('error al crear la orden');
+    }
     console.log(values);
     resetForm();
   };

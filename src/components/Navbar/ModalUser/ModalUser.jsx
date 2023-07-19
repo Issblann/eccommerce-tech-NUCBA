@@ -27,7 +27,7 @@ const ModalUser = () => {
 
           <HrStyled />
 
-          <LinkStyled to="/my orders">My orders</LinkStyled>
+          <LinkStyled to="/my-orders">My orders</LinkStyled>
           <span
             onClick={() => {
               dispatch(setCurrentUser(null));

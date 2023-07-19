@@ -47,8 +47,8 @@ const Navbar = ({ open }) => {
             <Link to="/">
               <img
                 src={hyperxLogo}
-                width="80px"
-                height="80px"
+                width="60px"
+                height="60px"
                 alt="hyperxLogo"
               />
             </Link>
@@ -89,7 +89,7 @@ const Navbar = ({ open }) => {
               }
               className="link-hidden link-login"
             >
-              <FaUserAlt />
+              <FaUserAlt fontSize="20px" />
               {currentUser ? `${currentUser.nombre.toUpperCase()}` : "Login"}
             </LinkContainerStyled>
           </motion.div>

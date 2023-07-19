@@ -29,7 +29,6 @@ export const NavbarContainerStyled = styled.div`
     padding: 0 20px;
   }
   @media (max-width: 460px) {
-    padding: unset;
     gap: 10px;
   }
 `;
@@ -40,6 +39,9 @@ export const LinksContainerStyled = styled.div`
   align-items: center;
   gap: 26px;
 
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
   @media (max-width: 768px) {
     .link-hidden,
     a:first-child {
