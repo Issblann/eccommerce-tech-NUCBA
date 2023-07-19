@@ -1,5 +1,5 @@
-import { styled } from "styled-components";
-import { Link } from "react-router-dom";
+import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
 export const ContainerPrincipalFooterStyled = styled.footer`
   width: 100%;
   background: var(--color-4);
@@ -63,7 +63,7 @@ export const LinksContainerStyled = styled.div`
   margin-top: 10px;
 
   @media (max-width: 768px) {
-    display: ${({ show }) => (show ? "flex" : "none")};
+    display: ${({ show }) => (show ? 'flex' : 'none')};
   }
 `;
 
@@ -91,6 +91,6 @@ export const BottomSectionStyled = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 20px 40px;
+  padding: 0px 40px;
   height: 60px;
 `;
