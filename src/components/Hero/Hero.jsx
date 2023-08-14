@@ -1,6 +1,6 @@
-import React from "react";
-import heroIMG from "../../assets/heroimgs/CLOUD-II.jpeg";
-import { BsArrowUpRight, BsArrowRight } from "react-icons/bs";
+import React from 'react';
+import heroIMG from '../../assets/heroimgs/CLOUD-II.jpeg';
+import { BsArrowUpRight, BsArrowRight } from 'react-icons/bs';
 
 import {
   HeroContainerStyled,
@@ -9,9 +9,15 @@ import {
   TitleHeroStyled,
   ParagraphHeroStyled,
   LinkToActionStyled,
-} from "./HeroStyles";
-import Button from "../UI/button/Button";
+} from './HeroStyles';
+import Button from '../UI/button/Button';
+import { useNavigate } from 'react-router-dom';
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleNavigateClick = () => {
+    navigate('/products');
+  };
   return (
     <div>
       <HeroContainerStyled>
@@ -21,7 +27,10 @@ const Hero = () => {
           <ParagraphHeroStyled>Immerse yourself in gaming</ParagraphHeroStyled>
 
           <LinkToActionStyled>
-            <Button variant="default"> DISCOVER NOW </Button>
+            <Button variant="default" onClick={handleNavigateClick}>
+              {' '}
+              DISCOVER NOW{' '}
+            </Button>
           </LinkToActionStyled>
         </SubContainerHeroStyled>
       </HeroContainerStyled>

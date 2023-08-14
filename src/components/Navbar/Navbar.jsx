@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { FaUserAlt } from "react-icons/fa";
-import { HiOutlineMenu } from "react-icons/hi";
-import { GrClose } from "react-icons/gr";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { FaUserAlt } from 'react-icons/fa';
+import { HiOutlineMenu } from 'react-icons/hi';
+import { GrClose } from 'react-icons/gr';
 
 import {
   HeaderPrincipal,
@@ -15,14 +15,14 @@ import {
   MenuItem,
   ContainerMenuAndLogo,
   ModalOverlayMenu,
-} from "./NavbarStyles";
-import { Link, useNavigate } from "react-router-dom";
-import ModalCart from "./ModalCart/ModalCart";
-import ModalUser from "./ModalUser/ModalUser";
-import { toggleHiddenCart } from "../../redux/cart/cartSlice";
-import { useDispatch, useSelector } from "react-redux";
-import hyperxLogo from "../../assets/logo/hyperx-logo-lg.svg";
-import { toggleMenuHidden } from "../../redux/user/userSlice";
+} from './NavbarStyles';
+import { Link, useNavigate } from 'react-router-dom';
+import ModalCart from './ModalCart/ModalCart';
+import ModalUser from './ModalUser/ModalUser';
+import { toggleHiddenCart } from '../../redux/cart/cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import hyperxLogo from '../../assets/logo/hyperx-logo-lg.svg';
+import { toggleMenuHidden } from '../../redux/user/userSlice';
 const Navbar = ({ open }) => {
   const currentUser = useSelector((state) => state.User.currentUser);
   const navigate = useNavigate();
@@ -37,6 +37,9 @@ const Navbar = ({ open }) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleNavigateClick = () => {
+    navigate('/products');
+  };
   return (
     <>
       <HeaderPrincipal>
@@ -67,11 +70,12 @@ const Navbar = ({ open }) => {
               </Link>
             </motion.div>
             <motion.div whileTap={{ scale: 0.97 }}>
-              <Link to="">
-                <LinkContainerStyled className="link-hidden">
-                  Products
-                </LinkContainerStyled>
-              </Link>
+              <LinkContainerStyled
+                onClick={handleNavigateClick}
+                className="link-hidden"
+              >
+                Products
+              </LinkContainerStyled>
             </motion.div>
           </LinksContainerStyled>
 
@@ -85,12 +89,12 @@ const Navbar = ({ open }) => {
           <motion.div whileTap={{ scale: 0.97 }}>
             <LinkContainerStyled
               onClick={() =>
-                currentUser ? dispatch(toggleMenuHidden()) : navigate("/login")
+                currentUser ? dispatch(toggleMenuHidden()) : navigate('/login')
               }
               className="link-hidden link-login"
             >
               <FaUserAlt fontSize="20px" />
-              {currentUser ? `${currentUser.nombre.toUpperCase()}` : "Login"}
+              {currentUser ? `${currentUser.nombre.toUpperCase()}` : 'Login'}
             </LinkContainerStyled>
           </motion.div>
 

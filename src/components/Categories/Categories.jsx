@@ -1,17 +1,17 @@
-import React, { useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/bundle";
-import "swiper/css/navigation";
-import "./sliderSwiper.css";
+import React, { useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css/bundle';
+import 'swiper/css/navigation';
+import './sliderSwiper.css';
 import {
   SectionPrincipalStyled,
   ContainerStyled,
   ContainerNewProductsListStyled,
-} from "../NewProducts/NewProductsStyles.js";
+} from '../NewProducts/NewProductsStyles.js';
 
-import { TitleCategoryContainerStyled } from "./CategoriesStyles.js";
-import Category from "./Category";
-import { useSelector } from "react-redux";
+import { TitleCategoryContainerStyled } from './CategoriesStyles.js';
+import Category from './Category';
+import { useSelector } from 'react-redux';
 
 const Categories = () => {
   const swiperRef = useRef();
@@ -57,8 +57,6 @@ const Categories = () => {
               autoplay={{
                 delay: 100,
               }}
-              onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}
             >
               {categories.map((category) => {
                 return (

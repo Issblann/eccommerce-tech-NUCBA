@@ -1,11 +1,10 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const SectionPrincipalStyled = styled.section`
   width: 100%;
   color: black;
   display: flex;
   justify-content: center;
-  /* background: red; */
 `;
 
 export const ContainerStyled = styled.div`
@@ -29,7 +28,6 @@ export const TitleContainerStyled = styled.h1`
 
 export const ContainerNewProductsListStyled = styled.div`
   width: 100%;
-  /* background: blue; */
   gap: 30px;
   display: flex;
   justify-content: center;
@@ -39,11 +37,10 @@ export const ContainerNewProductsListStyled = styled.div`
 `;
 
 export const CardNewProductsStyled = styled.div`
-  /* background: pink; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 503px;
+  height: 100%;
 `;
 
 export const ImgCardStyled = styled.img`

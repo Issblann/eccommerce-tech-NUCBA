@@ -1,8 +1,8 @@
-import React from "react";
-import { ProductsCard, ContainerPrice, CardPrice } from "./CardsProductsStyles";
-import Button from "../UI/button/Button";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/cart/cartSlice";
+import React from 'react';
+import { ProductsCard, ContainerPrice, CardPrice } from './CardsProductsStyles';
+import Button from '../UI/button/Button';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cart/cartSlice';
 const CardProduct = ({ title, img, desc, price, id }) => {
   const dispatch = useDispatch();
   return (
