@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const ProductsContainer = styled.div`
   display: grid;
@@ -9,6 +9,7 @@ export const ProductsContainer = styled.div`
   width: 100%;
   padding: 1rem 0;
   background: white;
+  margin-bottom: 30px;
 `;
 
 export const ProductsCard = styled.div`
@@ -62,6 +63,7 @@ export const ContainerButtons = styled.div`
   align-items: center;
   gap: 30px;
   margin-top: 30px;
+  margin-bottom: 40px;
 
   button {
     color: black;

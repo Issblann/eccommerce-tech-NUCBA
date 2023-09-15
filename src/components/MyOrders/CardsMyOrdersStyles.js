@@ -26,9 +26,9 @@ export const MisOrdenesBtnContainerStyled = styled.div`
 export const OrderContainerStyled = styled.div`
   background: var(--color-2);
   width: 380px;
+  border-radius: 10px;
   padding: 1rem 1.4rem;
   display: flex;
-  align-items: center;
   flex-direction: column;
   justify-content: space-between;
   @media (max-width: 400px) {
@@ -39,10 +39,14 @@ export const OrderContainerStyled = styled.div`
 export const IdStyled = styled.p`
   font-size: 1rem;
   color: white;
+
+  span {
+    color: whitesmoke;
+  }
 `;
 export const TitleStyled = styled.h2`
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 `;
 
 export const PriceStyled = styled.p`

@@ -1,8 +1,7 @@
 import { styled } from 'styled-components';
-import { Link } from 'react-router-dom';
 export const ContainerPrincipalFooterStyled = styled.footer`
   width: 100%;
-  background: var(--color-4);
+  background: #e8e9ee;
   display: flex;
   justify-content: center;
   margin: 0 auto;

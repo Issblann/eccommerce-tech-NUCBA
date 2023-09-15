@@ -11,8 +11,12 @@ const CardMyOrders = ({ createdAt, total, _id }) => {
   return (
     <OrderContainerStyled>
       <TextContainerStyled>
-        <TitleStyled>ID de la orden: {_id.slice(0, 7)}</TitleStyled>
-        <IdStyled>Fecha: {formatDate(createdAt)}hs</IdStyled>
+        <TitleStyled>
+          Order ID <span>{_id.slice(0, 7)}</span>
+        </TitleStyled>
+        <IdStyled>
+          DATE <span>{formatDate(createdAt)} hs</span>
+        </IdStyled>
         <PriceStyled>${total}</PriceStyled>
       </TextContainerStyled>
     </OrderContainerStyled>
